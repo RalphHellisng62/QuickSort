@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class OrdenamientoQuickSort {
@@ -49,6 +50,13 @@ public class OrdenamientoQuickSort {
                     }
                 }
             }
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+            System.exit(1);
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo contiene valores no numéricos.");
+            System.exit(1);
         }
+        return numeros.stream().mapToInt(i -> i).toArray();
 
-}
+    }
