@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
+
 public class OrdenamientoQuickSort {
 
     public static void quickSort(int[] arr, int inicio, int fin) {
@@ -29,5 +33,22 @@ public class OrdenamientoQuickSort {
 
         return i + 1;
     }
+
+    // Use bufferReader e importaciones para leer los archivos.txt
+    public static int[] leerArchivo(String nombreArchivo) {
+        ArrayList<Integer> numeros = new ArrayList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(nombreArchivo))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                // Permitimos números separados por comas, espacios o saltos
+                String[] partes = linea.split("[,\\s]+");
+                for (String p : partes) {
+                    if (!p.trim().isEmpty()) {
+                        numeros.add(Integer.parseInt(p.trim()));
+                    }
+                }
+            }
+        }
 
 }
