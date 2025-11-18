@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -59,4 +60,16 @@ public class OrdenamientoQuickSort {
         }
         return numeros.stream().mapToInt(i -> i).toArray();
 
+    }
+
+    // Aqui se guardara el arreglo ordenado en un nuevo archivo
+    public static void guardarArchivo(String nombreArchivo, int[] datos) {
+        try (FileWriter fw = new FileWriter(nombreArchivo)) {
+            for (int num : datos) {
+                fw.write(num + " ");
+            }
+            System.out.println("Archivo '" + nombreArchivo + "' guardado correctamente.");
+        } catch (IOException e) {
+            System.out.println("Error al guardar archivo: " + e.getMessage());
+        }
     }
