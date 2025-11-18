@@ -85,5 +85,11 @@ public class OrdenamientoQuickSort {
         System.out.println("Números originales:");
         for (int n : numeros) System.out.print(n + " ");
 
-        quickSort(numeros, inicio, fin);
+        quickSort(numeros, 0, numeros.length - 1);
+
+        System.out.println("\n\nNúmeros ordenados:");
+        for (int n : numeros) System.out.print(n + " ");
+
+        guardarArchivo(archivoSalida, numeros);
     }
+}
