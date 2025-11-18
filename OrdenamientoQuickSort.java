@@ -73,3 +73,17 @@ public class OrdenamientoQuickSort {
             System.out.println("Error al guardar archivo: " + e.getMessage());
         }
     }
+
+    // Creación del main
+    public static void main(String[] args) {
+        String archivoEntrada = "numeros.txt";
+        String archivoSalida = "numeros_ordenados.txt";
+
+        System.out.println("Leyendo archivo: " + archivoEntrada);
+        int[] numeros = leerArchivo(archivoEntrada);
+
+        System.out.println("Números originales:");
+        for (int n : numeros) System.out.print(n + " ");
+
+        quickSort(numeros, inicio, fin);
+    }
